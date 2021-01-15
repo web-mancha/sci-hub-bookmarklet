@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Sci-Hub Bookmarklet</title>
+    <meta name="description" content="A bookmarklet that queries the current page into Sci-Hub">
+    <script>
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          jsstr = "javascript:(function(){ " + this.responseText.replace(/\n/, " ") + " })();";
+          document.getElementById("link_static").setAttribute('href', jsstr);
+        }
+      };
+      xhttp.open("GET", "scihub-bookmarklet.js", true);
+      xhttp.send();
+    </script>
+  </head>
+
+  <body>
+    <div>
+      <h2>Instructions</h2>
+      <p>Right-click on the link below, then add it to your bookmarks. Alternatively, drag it to your bookmark toolbar.</p>
+      <p>From now on, when you are visiting a page of a research paper, click on the saved bookmark.</p>
+      <p>How to install: <a href="tutorial/sci-hub-bookmarklet-how_to_install.mp4">[video]</a></p>
+      <p>How to use: <a href="tutorial/sci-hub-bookmarklet-how_to_use.mp4">[video]</a></p>
+    </div>
+    <div>
+      <h2>Instruções</h2>
+      <p>Clique com o botão direito no link abaixo, e adicione aos seus favoritos. Alternativamente, arraste-o para sua barra de favoritos.</p>
+      <p>De agora em diante, quando estiver na página de um artigo, clique no favorito que você salvou.</p>
+      <p>Como instalar: <a href="tutorial/sci-hub-bookmarklet-how_to_install.mp4">[video]</a></p>
+      <p>Como usar: <a href="tutorial/sci-hub-bookmarklet-how_to_use.mp4">[video]</a></p>
+    </div>
+
+    <div>
+      <h2>Bookmarklet</h2>
+      <div style="text-align:center;margin:10px 0px 0px 10px;width:300px;padding:5px;border:1px solid #cccccc">bookmarklet link: &nbsp; <a id="link_dynamic" style="font-weight:bold" href="javascript:(function(d){d.body.appendChild(d.createElement('script')).src='https://web-mancha.github.io/sci-hub-bookmarklet/scihub-bookmarklet.js';})(document);" title="Sci-Hub Downloader" onclick="alert('This link is a bookmarklet. RIGHT CLICK ON IT, and add it to your bookmarks.   (Tip: For faster use, add it to your links toolbar.)\n\nEste link é um bookmarklet. CLIQUE COM O BOTÃO DIREITO NELE, e adicione aos seus favoritos.    (Dica: para maior agilidade, adicione-o a sua barra de favoritos.');return false;">Sci-Hub Downloader</a></div>
+      <div style="display: none; text-align:center;margin:10px 0px 0px 10px;width:300px;padding:5px;border:1px solid #cccccc">bookmarklet link (static): &nbsp; <a id="link_static" style="font-weight:bold" href="tst" title="Sci-Hub Downloader" onclick="alert('This link is a bookmarklet. RIGHT CLICK ON IT, and add it to your bookmarks.   (Tip: For faster use, add it to your links toolbar.)\n\nEste link é um bookmarklet. CLIQUE COM O BOTÃO DIREITO NELE, e adicione aos seus favoritos.    (Dica: para maior agilidade, adicione-o a sua barra de favoritos.');return false;">Sci-Hub Downloader</a></div>
+    </div>
+
+  </body>
+
+</html>
