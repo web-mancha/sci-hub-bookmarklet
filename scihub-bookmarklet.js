@@ -1,5 +1,5 @@
 
-var scihub_url = 'https://sci-hub.tw';
+var scihub_url = 'https://sci-hub.se';
 
 var scihub_download = scihub_url+'/'+window.location.href;
 
